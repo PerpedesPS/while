@@ -1,0 +1,36 @@
+# initialize variables
+total = 0
+num_items = 0
+
+# loop to repeatedly ask user for numbers
+while True:
+    # get input from the user
+    number = input("Enter a number (-1 to stop): ")
+
+    # check if user wants to stop entering numbers
+    if number == "-1":
+        break
+
+    # convert input to a float (with error handling)
+    try:
+        number = float(number)
+    except ValueError:
+        print("Invalid input - please enter a number")
+        continue
+
+    # add number to total and update count
+    total += number
+    num_items += 1
+
+# calculate average of numbers (with error handling)
+try:
+    average = total / num_items
+except ZeroDivisionError:
+    print("No numbers were entered")
+    average = 0
+
+# display result
+if num_items > 0:
+    print("The average of the", num_items, "numbers entered is", average)
+else:
+    print("No numbers were entered")
